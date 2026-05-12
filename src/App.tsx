@@ -18,7 +18,7 @@ function parseGrid(text: string): Grid {
     let expectedLen: number | null = null;
     for (const line of lines) {
       if (line.length === 0) continue;
-      const parts = line.split(/[\s,]+/).map(s => s.trim());
+      const parts = line.split(',').map(s => s.trim());
       if (expectedLen === null) expectedLen = parts.length;
       if (parts.length !== expectedLen) {
         throw new Error(`Row lengths differ: expected ${expectedLen}, got ${parts.length}`);
